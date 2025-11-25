@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>Your Cart & Checkout</h1>
+    <table border="1" width="50%">
+        <tr><th>Item</th><th>Qty</th><th>Price</th></tr>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item.product.name }}</td>
+            <td>{{ item.qty }}</td>
+            <td>{{ item.subtotal }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Total Bill: {{ total }} Taka</h3>
+
+    <h2>Shipping Address</h2>
+    <form method="POST">
+        {% csrf_token %}
+        Name: <input type="text" name="name" required><br><br>
+        Address: <textarea name="address" required></textarea><br><br>
+        <button type="submit" style="background: orange; padding: 10px;">Confirm Order</button>
+    </form>
+</body>
+</html>
