@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grocery Shop</title>
+    <style>
+        .card { border: 1px solid #ddd; padding: 10px; margin: 10px; display: inline-block; width: 200px; }
+        .btn { background: green; color: white; padding: 5px 10px; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <h1>Fresh Grocery Market</h1>
+    <a href="/checkout" style="font-size: 20px;">🛒 Go to Cart</a>
+    <hr>
+    {% for p in products %}
+    <div class="card">
+        <h3>{{ p.name }}</h3>
+        <p>Price: {{ p.price }} Taka</p>
+        <a href="/add-to-cart/{{ p.id }}/" class="btn">Add to Cart</a>
+    </div>
+    {% endfor %}
+</body>
+</html>
